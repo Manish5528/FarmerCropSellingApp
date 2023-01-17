@@ -134,7 +134,7 @@ class _ViewProductState extends State<ViewProduct> {
           ),
         ),
       ),
-      bottomNavigationBar: BottomBar(),
+      bottomNavigationBar: BottomBar(productModel.pid!),
     );
   }
   getProductDetails() async {

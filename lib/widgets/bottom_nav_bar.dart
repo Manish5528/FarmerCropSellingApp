@@ -81,15 +81,26 @@ class BottonNavItem extends StatelessWidget {
 }
 
 class BottomBar extends StatefulWidget {
+final String value;
 
-
-  BottomBar( {Key? key}) : super(key: key);
+  BottomBar(this.value, {Key? key}) : super(key: key);
 
   @override
   _BottomBarState createState() => _BottomBarState();
 }
 
 class _BottomBarState extends State<BottomBar> {
+
+  bool isLoading = true;
+
+  ProductModel productModel = ProductModel();
+
+  @override
+  void initState() {
+    super.initState();
+    getProductDetails();
+  }
+
 
   @override
   Widget build(BuildContext context) {
@@ -104,7 +115,7 @@ class _BottomBarState extends State<BottomBar> {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Text(
-              "\$120",
+              "₹" + productModel.price!,
               style: TextStyle(
                 fontSize: 25,
                 fontWeight: FontWeight.bold,
@@ -144,6 +155,17 @@ class _BottomBarState extends State<BottomBar> {
       ),
     );
   }
-
+  getProductDetails() async {
+    setState(() {
+      isLoading = true;
+    });
+    await FirebaseFirestore.instance.collection("products")
+        .where("pid", isEqualTo: widget.value).get().then((val) async {
+      productModel = ProductModel.fromJson(val.docs[0].data());
+    });
+    setState(() {
+      isLoading = false;
+    });
+  }
 
 }
