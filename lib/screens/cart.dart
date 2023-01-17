@@ -27,15 +27,21 @@ class _CartState extends State<Cart> {
 
    @override
   Widget build(BuildContext context) {
-    return Material(
-      child: Container(
-        padding: EdgeInsets.only(top: 50),
-        height: 500,
+    return Scaffold(
+      appBar: AppBar(
+        title: Text ("Cart"),
+      ),
+
+      body: Column(
+      children:[
+        Container(
+        padding: EdgeInsets.only(top: 20),
+        height: 685,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Container(
-              height: 650,
+              height: 570,
               child: SingleChildScrollView(
                 child: Column(
                   children: [
@@ -57,7 +63,7 @@ class _CartState extends State<Cart> {
                           children: [
                             Padding(
                               padding: EdgeInsets.all(0),
-                              child: Image.asset("assets/products/Apple.png",
+                              child: Image.asset("assets/images/apple.png",
                                   height: 70, width: 70),
                             ),
                             Column(
@@ -232,7 +238,9 @@ class _CartState extends State<Cart> {
             ),
           ],
         ),
-      ),
+      )
+     ],
+     ),
     );
   }
 }
