@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "209014983944",
+    "project_id": "cropbuyerseller",
+    "storage_bucket": "cropbuyerseller.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:209014983944:android:af07cdd7c40ac098a370bd",
+        "android_client_info": {
+          "package_name": "com.example.ui"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "209014983944-hf2opvg1m66cfk4hdfv38bcrjlr9t1t4.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDuQCAcBhz2VR0VtGcy3ggVmx63g3lNrpI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "209014983944-hf2opvg1m66cfk4hdfv38bcrjlr9t1t4.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
