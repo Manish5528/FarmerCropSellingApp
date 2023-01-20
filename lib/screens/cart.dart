@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:ui/screens/address.dart';
 class Cart extends StatefulWidget {
   const Cart({Key? key}) : super(key: key);
 
@@ -8,21 +9,7 @@ class Cart extends StatefulWidget {
 }
 
 class _CartState extends State<Cart> {
-   int count = 1;
-   void _incrementCount(){
-     setState(() {
-       count++;
-     });
-   }
-   void _decrementCount(){
-     if(count < 2){
-       return ;
-
-     }
-     setState(() {
-       count--;
-     });
-   }
+  int _itemCount = 1;
 
 
    @override
@@ -129,7 +116,10 @@ class _CartState extends State<Cart> {
                                           ],
                                         ),
                                         child: new IconButton(
-                                          onPressed: _decrementCount,
+                                          onPressed: () =>
+                                              setState(()  =>
+                                            _itemCount !=1 ? _itemCount-- : _itemCount
+                                          ),
                                           icon: new Icon(CupertinoIcons.minus),
                                           constraints: BoxConstraints(
                                               maxHeight: 30, maxWidth: 30),
@@ -141,7 +131,7 @@ class _CartState extends State<Cart> {
                                         margin: EdgeInsets.symmetric(
                                             horizontal: 10),
                                         child: Text(
-                                          "(${count})",
+                                          "(${_itemCount})",
                                           style: TextStyle(
                                             fontSize: 18,
                                             fontWeight: FontWeight.bold,
@@ -163,7 +153,10 @@ class _CartState extends State<Cart> {
                                           ],
                                         ),
                                         child: new IconButton(
-                                          onPressed: _incrementCount,
+                                          onPressed: () =>
+                                              setState(()  =>
+                                              _itemCount++
+                                              ),
                                           icon: new Icon(CupertinoIcons.plus),
                                           constraints: BoxConstraints(
                                               maxHeight: 30, maxWidth: 30),
@@ -210,6 +203,8 @@ class _CartState extends State<Cart> {
                   ),
                   InkWell(
                     onTap: () {
+                      Navigator.push(context,
+                          MaterialPageRoute(builder: (context) => AdressScreen()));
 
                       },
 
